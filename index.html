@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <title>Great Mondays – Fixed Nav & Layout</title>
+    <title>Great Mondays – Fixed Layout</title>
     <meta
       name="viewport"
       content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
@@ -32,7 +32,7 @@
         margin: 0;
         padding: 0;
         font-family: "Inter", sans-serif;
-        background: #0f172a; /* Dark background for better framing */
+        background: #0f172a;
         color: #0f172a;
         overflow: hidden;
       }
@@ -160,7 +160,6 @@
         const [isMobile, setIsMobile] = useState(false);
         const [revealedExampleIndices, setRevealedExampleIndices] = useState([]);
         
-        // Data
         const slides = [
           {
             type: "intro",
@@ -345,9 +344,8 @@
         useEffect(() => {
           const updateScale = () => {
             const width = window.innerWidth;
-            const height = window.innerHeight;
             
-            // Mobile/Tablet detection
+            // Mobile detection
             if (width < 1024) {
               setIsMobile(true);
               setScale(1);
@@ -361,12 +359,11 @@
               return;
             }
             
-            // Desktop Projector Mode scaling
             const baseWidth = 1280;
             const baseHeight = 720;
             const padding = 40;
             const availableW = width - padding;
-            const availableH = height - padding;
+            const availableH = window.innerHeight - padding;
             const scaleW = availableW / baseWidth;
             const scaleH = availableH / baseHeight;
             const nextScale = Math.min(scaleW, scaleH, 1);
@@ -425,7 +422,7 @@
 
         const getContainerStyle = () => {
           if (isMobile) {
-            // Mobile: Dynamic viewport height
+            // Mobile: Full viewport height
             return {
               width: "100%",
               height: "100dvh", 
@@ -457,11 +454,12 @@
               {isFullscreen ? <Minimize2 className="w-5 h-5" /> : <Maximize2 className="w-5 h-5" />}
             </button>
 
+            {/* MAIN CARD CONTAINER - Changed to Flex Column */}
             <div
-              className={`relative bg-white shadow-2xl overflow-hidden transition-all duration-300 ease-out ${!isMobile && !isFullscreen ? "rounded-[1.5rem] border-4 border-white" : ""}`}
+              className={`relative bg-white shadow-2xl overflow-hidden flex flex-col transition-all duration-300 ease-out ${!isMobile && !isFullscreen ? "rounded-[1.5rem] border-4 border-white" : ""}`}
               style={getContainerStyle()}
             >
-              {/* Background Layer */}
+              {/* Background Layer - Positioned Absolute behind everything */}
               <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
                 <img
                   key={currentSlide}
@@ -473,13 +471,13 @@
                 <div className="absolute inset-0 bg-gradient-to-b from-white/95 via-white/80 to-slate-50/80"></div>
               </div>
 
-              {/* Scrollable Content Area with Padding Bottom for Nav */}
-              <div className="absolute inset-0 z-10 overflow-y-auto custom-scroll flex flex-col">
-                <div className="flex-1 flex flex-col pb-32 md:pb-28"> 
+              {/* MIDDLE: Scrollable Content Area (Flex-1 takes remaining space) */}
+              <div className="relative z-10 flex-1 w-full overflow-y-auto custom-scroll">
+                <div className="flex flex-col min-h-full">
                 
                   {/* --- INTRO SLIDE --- */}
                   {slide.type === "intro" && (
-                    <div className="flex-1 flex flex-col items-center justify-center text-center p-6 md:p-12 min-h-full">
+                    <div className="flex-1 flex flex-col items-center justify-center text-center p-6 md:p-12">
                       <div className={`transition-all duration-500 ${revealStep >= 0 ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}>
                         <div className="inline-flex items-center justify-center p-4 md:p-6 rounded-3xl bg-gradient-to-br from-red-500 to-rose-600 shadow-xl text-white mb-6 animate-float">
                           <span className="text-3xl md:text-5xl">🚀</span>
@@ -515,7 +513,7 @@
 
                   {/* --- WHY SLIDES --- */}
                   {slide.type === "why" && (
-                    <div className="flex-1 flex flex-col justify-center items-center text-center p-6 md:p-12 min-h-full">
+                    <div className="flex-1 flex flex-col justify-center items-center text-center p-6 md:p-12">
                       <h1 className={`text-3xl md:text-6xl lg:text-7xl font-bold tracking-tight mb-8 md:mb-16 text-slate-900 transition-all duration-500 ${revealStep >= 0 ? "opacity-100 scale-100" : "opacity-0 scale-95"}`}>
                         {slide.title}
                       </h1>
@@ -621,7 +619,7 @@
 
                   {/* --- BREAKOUT ROOMS --- */}
                   {slide.type === "breakout" && (
-                    <div className="flex-1 flex flex-col items-center justify-center text-center p-6 md:p-12 min-h-full">
+                    <div className="flex-1 flex flex-col items-center justify-center text-center p-6 md:p-12">
                       <div className={`mb-8 transition-all duration-500 ${revealStep >= 0 ? "opacity-100" : "opacity-0 translate-y-4"}`}>
                         <div className="inline-flex p-3 rounded-full bg-white shadow-md mb-2 text-3xl">🔥</div>
                         <h1 className="text-4xl md:text-7xl font-bold text-slate-900 mb-2">{slide.title}</h1>
@@ -647,10 +645,11 @@
                 </div>
               </div>
 
-              {/* --- BOTTOM NAV --- */}
-              <div className={`absolute bottom-0 left-0 w-full z-50 transition-all duration-300 ${isFullscreen ? "opacity-0 hover:opacity-100" : "opacity-100"}`}>
+              {/* --- BOTTOM NAV (STATIC STICKY FOOTER) --- */}
+              <div className="relative z-50 shrink-0 w-full bg-white/90 backdrop-blur-lg border-t border-slate-200/50">
+                
                 {/* Progress Bar */}
-                <div className="h-1 md:h-2 bg-slate-200/50 w-full backdrop-blur">
+                <div className="h-1 md:h-1.5 bg-slate-200/50 w-full">
                   <div
                     className={`h-full bg-gradient-to-r ${slide.color || "from-slate-800 to-slate-600"} transition-all duration-300`}
                     style={{ width: `${((currentSlide + 1) / slides.length) * 100}%` }}
@@ -658,29 +657,29 @@
                 </div>
 
                 {/* Controls Container */}
-                <div className="flex justify-between items-center p-4 md:p-6 bg-gradient-to-t from-white via-white/90 to-transparent pt-10">
-                  {/* Counter */}
-                  <div className="bg-white/90 backdrop-blur-md px-4 py-2 rounded-full flex items-center gap-2 text-xs md:text-sm font-medium text-slate-500 shadow-md border border-slate-200">
+                <div className="flex justify-between items-center p-3 md:p-4">
+                  {/* Counter - Smaller on PC */}
+                  <div className="bg-slate-100 px-3 py-1.5 md:px-4 md:py-2 rounded-full flex items-center gap-2 text-xs md:text-sm font-medium text-slate-500 shadow-sm">
                     <span className="text-slate-900 font-bold">{(currentSlide + 1).toString().padStart(2, "0")}</span>
                     <span className="w-px h-3 bg-slate-300"></span>
                     <span>{slides.length.toString().padStart(2, "0")}</span>
                   </div>
 
-                  {/* Buttons */}
-                  <div className="flex items-center gap-4">
+                  {/* Buttons - Smaller padding on PC */}
+                  <div className="flex items-center gap-3">
                     <button
                       onClick={prevAction}
                       disabled={currentSlide === 0 && revealStep === 0}
-                      className="p-3 md:p-4 rounded-full bg-white hover:bg-slate-50 transition-all disabled:opacity-40 active:scale-90 shadow-lg border border-slate-200 text-slate-700"
+                      className="p-2 md:p-3 rounded-full bg-white hover:bg-slate-50 transition-all disabled:opacity-40 active:scale-90 shadow-sm border border-slate-200 text-slate-700"
                     >
-                      <ArrowLeft className="w-5 h-5 md:w-6 md:h-6" />
+                      <ArrowLeft className="w-5 h-5" />
                     </button>
                     <button
                       onClick={nextAction}
                       disabled={currentSlide === slides.length - 1 && revealStep === slide.totalSteps - 1}
-                      className="p-3 md:p-4 rounded-full bg-slate-900 text-white hover:bg-slate-800 transition-all disabled:opacity-40 active:scale-90 shadow-xl shadow-slate-900/20"
+                      className="p-2 md:p-3 rounded-full bg-slate-900 text-white hover:bg-slate-800 transition-all disabled:opacity-40 active:scale-90 shadow-md shadow-slate-900/20"
                     >
-                      <ArrowRight className="w-5 h-5 md:w-6 md:h-6" />
+                      <ArrowRight className="w-5 h-5" />
                     </button>
                   </div>
                 </div>
