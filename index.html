@@ -16,7 +16,10 @@
     <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
 
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
 
     <style>
       :root {
@@ -25,73 +28,99 @@
         --ease-bounce: cubic-bezier(0.34, 1.56, 0.64, 1);
       }
 
-      html, body, #root {
+      html,
+      body,
+      #root {
         height: 100%;
         margin: 0;
         padding: 0;
-        font-family: 'Inter', sans-serif;
+        font-family: "Inter", sans-serif;
         background: #f0f4f8;
         color: #0f172a;
         overflow: hidden;
       }
 
-      h1, h2, h3, h4 {
-        font-family: 'Space Grotesk', sans-serif;
+      h1,
+      h2,
+      h3,
+      h4 {
+        font-family: "Space Grotesk", sans-serif;
         letter-spacing: -0.02em;
       }
 
       /* Optimized Animations */
       @keyframes fluidReveal {
-        0% { opacity: 0; transform: translateY(8px) scale(0.99); filter: blur(3px); }
-        100% { opacity: 1; transform: translateY(0) scale(1); filter: blur(0); }
+        0% {
+          opacity: 0;
+          transform: translateY(8px) scale(0.99);
+          filter: blur(3px);
+        }
+        100% {
+          opacity: 1;
+          transform: translateY(0) scale(1);
+          filter: blur(0);
+        }
       }
 
       @keyframes slowPan {
-        0% { transform: scale(1.04) translate(0,0); }
-        50% { transform: scale(1.06) translate(-1%, -0.5%); }
-        100% { transform: scale(1.04) translate(0, 0); }
+        0% {
+          transform: scale(1.04) translate(0, 0);
+        }
+        50% {
+          transform: scale(1.06) translate(-1%, -0.5%);
+        }
+        100% {
+          transform: scale(1.04) translate(0, 0);
+        }
       }
 
       @keyframes float {
-        0%, 100% { transform: translateY(0); }
-        50% { transform: translateY(-4px); }
+        0%,
+        100% {
+          transform: translateY(0);
+        }
+        50% {
+          transform: translateY(-4px);
+        }
       }
 
       /* Faster Durations */
-      .animate-fluid-reveal { 
-        animation: fluidReveal 0.25s var(--ease-snappy) forwards; 
+      .animate-fluid-reveal {
+        animation: fluidReveal 0.25s var(--ease-snappy) forwards;
         will-change: transform, opacity, filter;
       }
-      .animate-slow-pan { 
-        animation: slowPan 28s ease-in-out infinite alternate; 
+      .animate-slow-pan {
+        animation: slowPan 28s ease-in-out infinite alternate;
         will-change: transform;
       }
-      .animate-float { animation: float 3.5s ease-in-out infinite; }
-      
+      .animate-float {
+        animation: float 3.5s ease-in-out infinite;
+      }
+
       /* Premium Card Styles - Faster Transitions */
       .pro-card {
         background: rgba(255, 255, 255, 0.85);
         backdrop-filter: blur(24px);
         border: 1px solid rgba(255, 255, 255, 0.6);
-        box-shadow: 
-          0 4px 6px -1px rgba(0, 0, 0, 0.05), 
+        box-shadow:
+          0 4px 6px -1px rgba(0, 0, 0, 0.05),
           0 10px 15px -3px rgba(0, 0, 0, 0.05),
-          inset 0 0 0 1px rgba(255,255,255,0.6);
+          inset 0 0 0 1px rgba(255, 255, 255, 0.6);
         transition: all 0.18s var(--ease-snappy);
       }
 
       .pro-card:hover {
         transform: translateY(-3px);
         background: rgba(255, 255, 255, 0.98);
-        box-shadow: 
-          0 20px 25px -5px rgba(0, 0, 0, 0.1), 
+        box-shadow:
+          0 20px 25px -5px rgba(0, 0, 0, 0.1),
           0 10px 10px -5px rgba(0, 0, 0, 0.04);
       }
 
       .definition-card {
         background: #0f172a;
         color: white;
-        border: 1px solid rgba(255,255,255,0.1);
+        border: 1px solid rgba(255, 255, 255, 0.1);
         box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
         position: relative;
         overflow: hidden;
@@ -106,7 +135,7 @@
       }
       .image-card:hover {
         transform: scale(1.01);
-        box-shadow: 0 18px 30px -12px rgba(0,0,0,0.25);
+        box-shadow: 0 18px 30px -12px rgba(0, 0, 0, 0.25);
         z-index: 10;
       }
       .image-card img {
@@ -122,19 +151,12 @@
         transform: scale(1.04);
         filter: brightness(0.6);
       }
-      .image-card .content-overlay {
-        background: linear-gradient(to top, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.5) 50%, rgba(0,0,0,0.2) 100%);
-        transition: all 0.24s var(--ease-snappy);
-      }
-      .image-card:hover .content-overlay {
-        background: rgba(0,0,0,0.85);
-        backdrop-filter: blur(4px);
-      }
 
       /* Intro Hero Gradient */
       .hero-gradient {
-        background: radial-gradient(circle at top right, #f43f5e20, transparent 40%),
-                    radial-gradient(circle at bottom left, #6366f120, transparent 40%);
+        background:
+          radial-gradient(circle at top right, #f43f5e20, transparent 40%),
+          radial-gradient(circle at bottom left, #6366f120, transparent 40%);
       }
 
       html:fullscreen .nav-shell,
@@ -152,202 +174,363 @@
 
       // --- ICONS ---
       const Icon = ({ children, className, ...props }) => (
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className} {...props}>{children}</svg>
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          className={className}
+          {...props}
+        >
+          {children}
+        </svg>
       );
-      const ArrowRight = (props) => <Icon {...props}><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></Icon>;
-      const ArrowLeft = (props) => <Icon {...props}><path d="m12 19-7-7 7-7"/><path d="M19 12H5"/></Icon>;
-      const Maximize2 = (props) => <Icon {...props}><polyline points="15 3 21 3 21 9"/><polyline points="9 21 3 21 3 15"/><line x1="21" x2="14" y1="3" y2="10"/><line x1="3" x2="10" y1="21" y2="14"/></Icon>;
-      const Minimize2 = (props) => <Icon {...props}><polyline points="4 14 10 14 10 20"/><polyline points="20 10 14 10 14 4"/><line x1="14" x2="21" y1="10" y2="3"/><line x1="3" x2="10" y1="21" y2="14"/></Icon>;
+      const ArrowRight = (props) => (
+        <Icon {...props}>
+          <path d="M5 12h14" />
+          <path d="m12 5 7 7-7 7" />
+        </Icon>
+      );
+      const ArrowLeft = (props) => (
+        <Icon {...props}>
+          <path d="m12 19-7-7 7-7" />
+          <path d="M19 12H5" />
+        </Icon>
+      );
+      const Maximize2 = (props) => (
+        <Icon {...props}>
+          <polyline points="15 3 21 3 21 9" />
+          <polyline points="9 21 3 21 3 15" />
+          <line x1="21" x2="14" y1="3" y2="10" />
+          <line x1="3" x2="10" y1="21" y2="14" />
+        </Icon>
+      );
+      const Minimize2 = (props) => (
+        <Icon {...props}>
+          <polyline points="4 14 10 14 10 20" />
+          <polyline points="20 10 14 10 14 4" />
+          <line x1="14" x2="21" y1="10" y2="3" />
+          <line x1="3" x2="10" y1="21" y2="14" />
+        </Icon>
+      );
 
       // --- IMAGES MAP (Unsplash) ---
       const slideImages = {
-        'Great Mondays': 'https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=2071&auto=format&fit=crop',
-        'Why Culture Matters': 'https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?q=80&w=2070&auto=format&fit=crop', 
-        'Evolving Culture Practice': 'https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=2071&auto=format&fit=crop',
-        'Purpose': 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070&auto=format&fit=crop', 
-        'Values': 'https://images.unsplash.com/photo-1517048676732-d65bc937f952?q=80&w=2070&auto=format&fit=crop', 
-        'Behaviors': 'https://images.unsplash.com/photo-1556761175-5973dc0f32e7?q=80&w=2664&auto=format&fit=crop',
-        'Recognition': 'https://images.unsplash.com/photo-1531545514256-b1400bc00f31?q=80&w=2574&auto=format&fit=crop',
-        'Rituals': 'https://images.unsplash.com/photo-1543269865-cbf427effbad?q=80&w=2070&auto=format&fit=crop', 
-        'Cues': 'https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=2069&auto=format&fit=crop',
-        'Breakout Rooms': 'https://images.unsplash.com/photo-1529156069898-49953e39b3ac?q=80&w=2055&auto=format&fit=crop', 
+        "Great Mondays":
+          "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=2071&auto=format&fit=crop",
+        "Why Culture Matters":
+          "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?q=80&w=2070&auto=format&fit=crop",
+        "Evolving Culture Practice":
+          "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=2071&auto=format&fit=crop",
+        Purpose:
+          "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070&auto=format&fit=crop",
+        Values:
+          "https://images.unsplash.com/photo-1517048676732-d65bc937f952?q=80&w=2070&auto=format&fit=crop",
+        Behaviors:
+          "https://images.unsplash.com/photo-1556761175-5973dc0f32e7?q=80&w=2664&auto=format&fit=crop",
+        Recognition:
+          "https://images.unsplash.com/photo-1531545514256-b1400bc00f31?q=80&w=2574&auto=format&fit=crop",
+        Rituals:
+          "https://images.unsplash.com/photo-1543269865-cbf427effbad?q=80&w=2070&auto=format&fit=crop",
+        Cues:
+          "https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=2069&auto=format&fit=crop",
+        "Breakout Rooms":
+          "https://images.unsplash.com/photo-1529156069898-49953e39b3ac?q=80&w=2055&auto=format&fit=crop",
       };
 
       function CultureSlideshow() {
         const [currentSlide, setCurrentSlide] = useState(0);
         const [revealStep, setRevealStep] = useState(0);
         const [isFullscreen, setIsFullscreen] = useState(false);
+        const [scale, setScale] = useState(1);
         const [revealedExampleIndices, setRevealedExampleIndices] = useState([]);
         const lastRevealedRef = useRef(null);
 
         const slides = [
           {
-            type: 'intro',
-            title: 'Great Mondays',
-            subtitle: 'Designing a Culture Employees Love',
+            type: "intro",
+            title: "Great Mondays",
+            subtitle: "Designing a Culture Employees Love",
             objectives: [
-                { text: 'Understand the Framework', icon: '🎯' },
-                { text: 'Learn Practical Applications', icon: '⚡' },
-                { text: 'Design Meaningful Actions', icon: '👥' }
+              { text: "Understand the Framework", icon: "🎯" },
+              { text: "Learn Practical Applications", icon: "⚡" },
+              { text: "Design Meaningful Actions", icon: "👥" },
             ],
             totalSteps: 4,
           },
           {
-            type: 'why',
-            title: 'Why Culture Matters',
-            points: ['Talent expectations are meaning-driven', 'A healthy culture minimises risk and reinforces consistency', 'Designed with intention, not by accident'],
-            highlight: 'Treat culture like a product. define, build, test, iterate.',
-            totalSteps: 5,
-          },
-          {
-            type: 'component',
-            iconEmoji: '🎯',
-            title: 'Purpose',
-            subtitle: 'The Foundation',
-            color: 'from-red-500 to-rose-500',
-            accent: 'text-red-600',
-            bgAccent: 'bg-red-100',
-            border: 'border-red-200',
-            shadow: 'shadow-red-500/20',
-            meaning: 'The reason we exist beyond profit. It is emotional, clear, and enduring.',
-            examples: [
-              { company: 'IKEA', purpose: 'Better everyday life for the many people', logo: '🏠', img: 'https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=800&q=80' },
-              { company: 'Nike', purpose: 'Inspire and innovate for every athlete', logo: '⚡', img: 'https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=800&q=80' },
-              { company: 'Starbucks', purpose: 'Nurture the human spirit', logo: '☕', img: 'https://images.unsplash.com/photo-1497935586351-b67a49e012bf?auto=format&fit=crop&w=800&q=80' },
-            ],
-            takeaway: 'Purpose should be short enough to remember and actionable enough to guide decisions.',
-            reflection: 'What meaningful change do we create for people?',
-            totalSteps: 5,
-          },
-          {
-            type: 'component',
-            iconEmoji: '❤️',
-            title: 'Values',
-            subtitle: 'Guiding Principles',
-            color: 'from-blue-500 to-cyan-600',
-            accent: 'text-blue-600',
-            bgAccent: 'bg-blue-100',
-            border: 'border-blue-200',
-            shadow: 'shadow-blue-500/20',
-            meaning: 'Beliefs that guide choices when tensions arise. Commitments, not just words.',
-            examples: [
-              { value: 'Own the Outcome', icon: '🎯', img: 'https://images.unsplash.com/photo-1553484771-371a605b060b?auto=format&fit=crop&w=800&q=80' },
-              { value: 'Learn Boldly', icon: '🚀', img: 'https://images.unsplash.com/photo-1523580846011-d3a5bc25702b?auto=format&fit=crop&w=800&q=80' },
-              { value: 'Speak Truth', icon: '💬', img: 'https://images.unsplash.com/photo-1588196749597-9ff075ee6b5b?auto=format&fit=crop&w=800&q=80' }, 
-            ],
-            takeaway: 'Values must show up across the entire employee lifecycle, not only on posters.',
-            reflection: 'Which value do we claim but struggle to live?',
-            totalSteps: 5,
-          },
-          {
-            type: 'component',
-            iconEmoji: '👥',
-            title: 'Behaviors',
-            subtitle: 'Making Values Real',
-            color: 'from-violet-500 to-purple-600',
-            accent: 'text-violet-600',
-            bgAccent: 'bg-violet-100',
-            border: 'border-indigo-200',
-            shadow: 'shadow-indigo-500/20',
-            meaning: 'Values converted into observable actions that are practical and coachable.',
-            examples: [
-              { behavior: 'Encourage Opinions', icon: '✨', img: 'https://images.unsplash.com/photo-1515187029135-18ee286d815b?auto=format&fit=crop&w=800&q=80' },
-              { behavior: 'Remove Gaps', icon: '🎯', img: 'https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=800&q=80' }, 
-              { behavior: 'Enable Managers', icon: '💪', img: 'https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=800&q=80' },
-            ],
-            takeaway: 'Make the right behaviors easier and the wrong behaviors harder.',
-            reflection: 'Where do our behaviors contradict our stated values?',
-            totalSteps: 5,
-          },
-          {
-            type: 'component',
-            iconEmoji: '🏆',
-            title: 'Recognition',
-            subtitle: 'Reinforcing What Matters',
-            color: 'from-amber-400 to-orange-500',
-            accent: 'text-orange-600',
-            bgAccent: 'bg-orange-100',
-            border: 'border-orange-200',
-            shadow: 'shadow-orange-500/20',
-            meaning: 'Reinforcing behaviors through specific, frequent, and fair acknowledgement.',
-            examples: [
-              { benefit: 'Repetition', detail: 'People repeat what gets noticed', icon: '🔄', img: 'https://images.unsplash.com/photo-1546953304-5d96f43c2e94?auto=format&fit=crop&w=800&q=80' },
-              { benefit: 'Community', detail: 'Strengthens team bonds', icon: '🤝', img: 'https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&w=800&q=80' },
-              { benefit: 'Tangible Values', detail: 'Transforms abstract into concrete', icon: '⭐', img: 'https://images.unsplash.com/photo-1559526324-593bc073d938?auto=format&fit=crop&w=800&q=80' }, 
-            ],
-            takeaway: 'Every recognition moment should be tied to a value and a clear behavior.',
-            reflection: 'What do we reward that we should stop rewarding?',
-            totalSteps: 5,
-          },
-          {
-            type: 'component',
-            iconEmoji: '📅',
-            title: 'Rituals',
-            subtitle: 'Building Connection',
-            color: 'from-teal-400 to-emerald-600',
-            accent: 'text-teal-600',
-            bgAccent: 'bg-teal-100',
-            border: 'border-teal-200',
-            shadow: 'shadow-teal-500/20',
-            meaning: 'Recurring experiences that build connection and replace dependence on organic closeness.',
-            examples: [
-              { ritual: 'Gratitude Circles', description: 'Regular appreciation moments', icon: '🙏', img: 'https://images.unsplash.com/photo-1529333166437-7750a6dd5a70?auto=format&fit=crop&w=800&q=80' },
-              { ritual: 'Demo Day', description: 'Showcase progress and wins', icon: '🎉', img: 'https://images.unsplash.com/photo-1543269865-cbf427effbad?auto=format&fit=crop&w=800&q=80' },
-              { ritual: 'Customer Stories', description: 'Connect to impact', icon: '💡', img: 'https://images.unsplash.com/photo-1556761175-5973dc0f32e7?auto=format&fit=crop&w=800&q=80' },
-            ],
-            takeaway: 'Rituals need clear owners, cadence, consistency, and a link to a value.',
-            reflection: 'Which rituals energize us, and which have lost meaning?',
-            totalSteps: 5,
-          },
-          {
-            type: 'component',
-            iconEmoji: '👁️',
-            title: 'Cues',
-            subtitle: 'Culture Visible',
-            color: 'from-pink-500 to-rose-600',
-            accent: 'text-pink-600',
-            bgAccent: 'bg-pink-100',
-            border: 'border-pink-200',
-            shadow: 'shadow-pink-500/20',
-            meaning: 'Physical or digital reminders that make culture visible and automate habits.',
-            examples: [
-              { cue: 'Story Rooms', impact: 'Physical spaces that inspire', icon: '🏢', img: 'https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=800&q=80' },
-              { cue: 'Digital Nudges', impact: 'Prompts for weekly wins', icon: '📱', img: 'https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=800&q=80' },
-            ],
-            takeaway: 'Make the right thing obvious and the wrong thing awkward.',
-            reflection: 'Where are cues missing or inconsistent?',
-            totalSteps: 5,
-          },
-          {
-            type: 'why',
-            title: 'Evolving Culture Practice',
+            type: "why",
+            title: "Why Culture Matters",
             points: [
-              'From “culture fit” to “values fit”, reduce bias, and increase clarity.',
-              'Culture as a product, iteration cycles, telemetry, and experiments.',
-              'Leaders as gardeners, they create conditions and prune misaligned behaviours quickly.',
+              "Talent expectations are meaning-driven",
+              "Culture prevents risk and reinforces consistency",
+              "Designed with intention, not by accident",
             ],
-            highlight: 'Shift from hiring for sameness to designing systems that scale values across roles, locations, and modalities.',
+            highlight: "Treat culture like a product. define, build, test, iterate.",
+            totalSteps: 5,
+          },
+          {
+            type: "component",
+            iconEmoji: "🎯",
+            title: "Purpose",
+            subtitle: "The Foundation",
+            color: "from-red-500 to-rose-500",
+            accent: "text-red-600",
+            bgAccent: "bg-red-100",
+            border: "border-red-200",
+            shadow: "shadow-red-500/20",
+            meaning:
+              "The reason we exist beyond profit. It is emotional, clear, and enduring.",
+            examples: [
+              {
+                company: "IKEA",
+                purpose: "Better everyday life for the many people",
+                logo: "🏠",
+                img: "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=800&q=80",
+              },
+              {
+                company: "Nike",
+                purpose: "Inspire and innovate for every athlete",
+                logo: "⚡",
+                img: "https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=800&q=80",
+              },
+              {
+                company: "Starbucks",
+                purpose: "Nurture the human spirit",
+                logo: "☕",
+                img: "https://images.unsplash.com/photo-1497935586351-b67a49e012bf?auto=format&fit=crop&w=800&q=80",
+              },
+            ],
+            takeaway:
+              "Purpose should be short enough to remember and actionable enough to guide decisions.",
+            reflection: "What meaningful change do we create for people?",
+            totalSteps: 5,
+          },
+          {
+            type: "component",
+            iconEmoji: "❤️",
+            title: "Values",
+            subtitle: "Guiding Principles",
+            color: "from-blue-500 to-cyan-600",
+            accent: "text-blue-600",
+            bgAccent: "bg-blue-100",
+            border: "border-blue-200",
+            shadow: "shadow-blue-500/20",
+            meaning:
+              "Beliefs that guide choices when tensions arise. Commitments, not just words.",
+            examples: [
+              {
+                value: "Own the Outcome",
+                icon: "🎯",
+                img: "https://images.unsplash.com/photo-1553484771-371a605b060b?auto=format&fit=crop&w=800&q=80",
+              },
+              {
+                value: "Learn Boldly",
+                icon: "🚀",
+                img: "https://images.unsplash.com/photo-1523580846011-d3a5bc25702b?auto=format&fit=crop&w=800&q=80",
+              },
+              {
+                value: "Speak Truth",
+                icon: "💬",
+                img: "https://images.unsplash.com/photo-1588196749597-9ff075ee6b5b?auto=format&fit=crop&w=800&q=80",
+              },
+            ],
+            takeaway:
+              "Values must show up across the entire employee lifecycle, not only on posters.",
+            reflection: "Which value do we claim but struggle to live?",
+            totalSteps: 5,
+          },
+          {
+            type: "component",
+            iconEmoji: "👥",
+            title: "Behaviors",
+            subtitle: "Making Values Real",
+            color: "from-violet-500 to-purple-600",
+            accent: "text-violet-600",
+            bgAccent: "bg-violet-100",
+            border: "border-indigo-200",
+            shadow: "shadow-indigo-500/20",
+            meaning:
+              "Values converted into observable actions that are practical and coachable.",
+            examples: [
+              {
+                behavior: "Encourage Opinions",
+                icon: "✨",
+                img: "https://images.unsplash.com/photo-1515187029135-18ee286d815b?auto=format&fit=crop&w=800&q=80",
+              },
+              {
+                behavior: "Remove Gaps",
+                icon: "🎯",
+                img: "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=800&q=80",
+              },
+              {
+                behavior: "Enable Managers",
+                icon: "💪",
+                img: "https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=800&q=80",
+              },
+            ],
+            takeaway:
+              "Make the right behaviors easier and the wrong behaviors harder.",
+            reflection: "Where do our behaviors contradict our stated values?",
+            totalSteps: 5,
+          },
+          {
+            type: "component",
+            iconEmoji: "🏆",
+            title: "Recognition",
+            subtitle: "Reinforcing What Matters",
+            color: "from-amber-400 to-orange-500",
+            accent: "text-orange-600",
+            bgAccent: "bg-orange-100",
+            border: "border-orange-200",
+            shadow: "shadow-orange-500/20",
+            meaning:
+              "Reinforcing behaviors through specific, frequent, and fair acknowledgement.",
+            examples: [
+              {
+                benefit: "Repetition",
+                detail: "People repeat what gets noticed",
+                icon: "🔄",
+                img: "https://images.unsplash.com/photo-1546953304-5d96f43c2e94?auto=format&fit=crop&w=800&q=80",
+              },
+              {
+                benefit: "Community",
+                detail: "Strengthens team bonds",
+                icon: "🤝",
+                img: "https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&w=800&q=80",
+              },
+              {
+                benefit: "Tangible Values",
+                detail: "Transforms abstract into concrete",
+                icon: "⭐",
+                img: "https://images.unsplash.com/photo-1559526324-593bc073d938?auto=format&fit=crop&w=800&q=80",
+              },
+            ],
+            takeaway:
+              "Every recognition moment should be tied to a value and a clear behavior.",
+            reflection: "What do we reward that we should stop rewarding?",
+            totalSteps: 5,
+          },
+          {
+            type: "component",
+            iconEmoji: "📅",
+            title: "Rituals",
+            subtitle: "Building Connection",
+            color: "from-teal-400 to-emerald-600",
+            accent: "text-teal-600",
+            bgAccent: "bg-teal-100",
+            border: "border-teal-200",
+            shadow: "shadow-teal-500/20",
+            meaning:
+              "Recurring experiences that build connection and replace dependence on organic closeness.",
+            examples: [
+              {
+                ritual: "Gratitude Circles",
+                description: "Regular appreciation moments",
+                icon: "🙏",
+                img: "https://images.unsplash.com/photo-1529333166437-7750a6dd5a70?auto=format&fit=crop&w=800&q=80",
+              },
+              {
+                ritual: "Demo Day",
+                description: "Showcase progress and wins",
+                icon: "🎉",
+                img: "https://images.unsplash.com/photo-1543269865-cbf427effbad?auto=format&fit=crop&w=800&q=80",
+              },
+              {
+                ritual: "Customer Stories",
+                description: "Connect to impact",
+                icon: "💡",
+                img: "https://images.unsplash.com/photo-1556761175-5973dc0f32e7?auto=format&fit=crop&w=800&q=80",
+              },
+            ],
+            takeaway:
+              "Rituals need clear owners, cadence, consistency, and a link to a value.",
+            reflection: "Which rituals energize us, and which have lost meaning?",
+            totalSteps: 5,
+          },
+          {
+            type: "component",
+            iconEmoji: "👁️",
+            title: "Cues",
+            subtitle: "Culture Visible",
+            color: "from-pink-500 to-rose-600",
+            accent: "text-pink-600",
+            bgAccent: "bg-pink-100",
+            border: "border-pink-200",
+            shadow: "shadow-pink-500/20",
+            meaning:
+              "Physical or digital reminders that make culture visible and automate habits.",
+            examples: [
+              {
+                cue: "Story Rooms",
+                impact: "Physical spaces that inspire",
+                icon: "🏢",
+                img: "https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=800&q=80",
+              },
+              {
+                cue: "Digital Nudges",
+                impact: "Prompts for weekly wins",
+                icon: "📱",
+                img: "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=800&q=80",
+              },
+            ],
+            takeaway: "Make the right thing obvious and the wrong thing awkward.",
+            reflection: "Where are cues missing or inconsistent?",
+            totalSteps: 5,
+          },
+          {
+            type: "why",
+            title: "Evolving Culture Practice",
+            points: [
+              "From “culture fit” to “values fit”. reduce bias, increase clarity.",
+              "Culture as a product. iteration cycles, telemetry, and experiments.",
+              "Hybrid and distributed realities. the six components must adapt to geography and modality.",
+              "Leaders as gardeners. create conditions. prune misaligned behaviors quickly.",
+            ],
+            highlight:
+              "Shift from hiring for sameness to designing systems that scale values across roles, locations, and modalities.",
             totalSteps: 6,
           },
           {
-            type: 'breakout',
-            title: 'Breakout Rooms',
-            subtitle: 'Apply the 5 Elements',
+            type: "breakout",
+            title: "Breakout Rooms",
+            subtitle: "Apply the 5 Elements",
             rooms: [
-                { name: 'Purpose', icon: '🎯', color: 'from-red-500 to-rose-500' },
-                { name: 'Values', icon: '❤️', color: 'from-blue-500 to-cyan-500' },
-                { name: 'Behaviors', icon: '👥', color: 'from-indigo-500 to-purple-500' },
-                { name: 'Recognition', icon: '🏆', color: 'from-yellow-500 to-orange-500' },
-                { name: 'Rituals', icon: '📅', color: 'from-teal-500 to-emerald-500' },
+              { name: "Purpose", icon: "🎯", color: "from-red-500 to-rose-500" },
+              { name: "Values", icon: "❤️", color: "from-blue-500 to-cyan-500" },
+              {
+                name: "Behaviors",
+                icon: "👥",
+                color: "from-indigo-500 to-purple-500",
+              },
+              {
+                name: "Recognition",
+                icon: "🏆",
+                color: "from-yellow-500 to-orange-500",
+              },
+              {
+                name: "Rituals",
+                icon: "📅",
+                color: "from-teal-500 to-emerald-500",
+              },
             ],
-            instruction: 'In groups, translate the following five components of culture into concrete actions for our teams.',
-            totalSteps: 2
-          }
+            instruction:
+              "In groups, translate the following five components of culture into concrete actions for our teams.",
+            totalSteps: 2,
+          },
         ];
 
         useEffect(() => {
           if (lastRevealedRef.current) {
-            lastRevealedRef.current.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            lastRevealedRef.current.scrollIntoView({
+              behavior: "smooth",
+              block: "center",
+            });
           }
         }, [revealStep]);
 
@@ -356,22 +539,45 @@
         }, [currentSlide]);
 
         const toggleFullscreen = async () => {
-            try {
-                if (!document.fullscreenElement) {
-                    await document.documentElement.requestFullscreen();
-                } else {
-                    await document.exitFullscreen();
-                }
-            } catch (err) {
-                setIsFullscreen(!isFullscreen); 
+          try {
+            if (!document.fullscreenElement) {
+              await document.documentElement.requestFullscreen();
+            } else {
+              await document.exitFullscreen();
             }
+          } catch (err) {
+            setIsFullscreen(!isFullscreen);
+          }
         };
 
         useEffect(() => {
           const handler = () => setIsFullscreen(!!document.fullscreenElement);
-          document.addEventListener('fullscreenchange', handler);
-          return () => document.removeEventListener('fullscreenchange', handler);
+          document.addEventListener("fullscreenchange", handler);
+          return () => document.removeEventListener("fullscreenchange", handler);
         }, []);
+
+        // dynamic scale for non-fullscreen
+        useEffect(() => {
+          const updateScale = () => {
+            if (isFullscreen) {
+              setScale(1);
+              return;
+            }
+            const baseWidth = 1280;
+            const baseHeight = 720;
+            const padding = 32;
+            const w = window.innerWidth - padding;
+            const h = window.innerHeight - padding;
+            const scaleW = w / baseWidth;
+            const scaleH = h / baseHeight;
+            const nextScale = Math.min(scaleW, scaleH, 1);
+            setScale(nextScale > 0 ? nextScale : 1);
+          };
+
+          updateScale();
+          window.addEventListener("resize", updateScale);
+          return () => window.removeEventListener("resize", updateScale);
+        }, [isFullscreen]);
 
         const nextAction = () => {
           const slide = slides[currentSlide];
@@ -395,12 +601,19 @@
 
         useEffect(() => {
           const handleKeyPress = (e) => {
-            if (e.key === 'ArrowRight' || e.key === ' ') { e.preventDefault(); nextAction(); } 
-            else if (e.key === 'ArrowLeft') { e.preventDefault(); prevAction(); } 
-            else if (e.key.toLowerCase() === 'f') { e.preventDefault(); toggleFullscreen(); } 
+            if (e.key === "ArrowRight" || e.key === " ") {
+              e.preventDefault();
+              nextAction();
+            } else if (e.key === "ArrowLeft") {
+              e.preventDefault();
+              prevAction();
+            } else if (e.key.toLowerCase() === "f") {
+              e.preventDefault();
+              toggleFullscreen();
+            }
           };
-          window.addEventListener('keydown', handleKeyPress);
-          return () => window.removeEventListener('keydown', handleKeyPress);
+          window.addEventListener("keydown", handleKeyPress);
+          return () => window.removeEventListener("keydown", handleKeyPress);
         }, [currentSlide, revealStep, isFullscreen]);
 
         const slide = slides[currentSlide];
@@ -413,41 +626,65 @@
 
         return (
           <div className="min-h-screen flex items-center justify-center p-0 bg-slate-200 overflow-hidden">
-            
-            <button type="button" onClick={toggleFullscreen} className="fixed top-4 right-4 z-50 p-3 rounded-full bg-white/80 text-slate-900 hover:bg-white shadow-lg transition group border border-slate-200 backdrop-blur-md">
-              {isFullscreen ? <Minimize2 className="w-5 h-5" /> : <Maximize2 className="w-5 h-5" />}
+            <button
+              type="button"
+              onClick={toggleFullscreen}
+              className="fixed top-4 right-4 z-50 p-3 rounded-full bg-white/80 text-slate-900 hover:bg-white shadow-lg transition group border border-slate-200 backdrop-blur-md"
+            >
+              {isFullscreen ? (
+                <Minimize2 className="w-5 h-5" />
+              ) : (
+                <Maximize2 className="w-5 h-5" />
+              )}
             </button>
 
-            <div className={`relative transition-all duration-300 ease-in-out overflow-hidden shadow-2xl bg-white
-                ${isFullscreen 
-                   ? 'w-full h-full' 
-                   : 'w-full max-w-[177.78vh] aspect-video rounded-[1.5rem] border-4 border-white m-4 md:m-8'
-                }`}
+            <div
+              className={`relative transition-all duration-300 ease-in-out overflow-hidden shadow-2xl bg-white ${
+                isFullscreen ? "w-full h-full" : "rounded-[1.5rem] border-4 border-white"
+              }`}
+              style={
+                isFullscreen
+                  ? {}
+                  : {
+                      width: "1280px",
+                      height: "720px",
+                      transform: `scale(${scale})`,
+                      transformOrigin: "top center",
+                      margin: "0 auto",
+                    }
+              }
             >
-              
               {/* Global Background Image Layer */}
               <div className="absolute inset-0 z-0 overflow-hidden">
-                  <img 
-                    key={currentSlide} 
-                    src={slideImages[slide.title] || slideImages['Great Mondays']} 
-                    className="w-full h-full object-cover animate-slow-pan" 
-                    alt="Background" 
-                  />
-                  {/* Glass Overlays */}
-                  <div className="absolute inset-0 bg-white/80 backdrop-blur-xl"></div>
-                  <div className="absolute inset-0 bg-gradient-to-b from-white/90 via-white/60 to-transparent"></div>
-                  
-                  {/* Decorative Animated Blobs */}
-                  <div className="absolute top-[-10%] right-[-10%] w-[40vw] h-[40vw] bg-gradient-to-br from-rose-100/50 to-blue-100/50 rounded-full blur-[80px] animate-pulse"></div>
-                  <div className="absolute bottom-[-10%] left-[-10%] w-[40vw] h-[40vw] bg-gradient-to-tr from-purple-100/50 to-indigo-100/50 rounded-full blur-[80px] animate-float"></div>
+                <img
+                  key={currentSlide}
+                  src={slideImages[slide.title] || slideImages["Great Mondays"]}
+                  className="w-full h-full object-cover animate-slow-pan"
+                  alt="Background"
+                />
+                {/* Glass Overlays */}
+                <div className="absolute inset-0 bg-white/80 backdrop-blur-xl"></div>
+                <div className="absolute inset-0 bg-gradient-to-b from-white/90 via-white/60 to-transparent"></div>
+
+                {/* Decorative Animated Blobs */}
+                <div className="absolute top-[-10%] right-[-10%] w-[40vw] h-[40vw] bg-gradient-to-br from-rose-100/50 to-blue-100/50 rounded-full blur-[80px] animate-pulse"></div>
+                <div className="absolute bottom-[-10%] left-[-10%] w-[40vw] h-[40vw] bg-gradient-to-tr from-purple-100/50 to-indigo-100/50 rounded-full blur-[80px] animate-float"></div>
               </div>
 
-              <div key={currentSlide} className="flex-1 relative z-10 overflow-hidden flex flex-col h-full">
-                
+              <div
+                key={currentSlide}
+                className="flex-1 relative z-10 overflow-hidden flex flex-col h-full"
+              >
                 {/* --- INTRO SLIDE --- */}
-                {slide.type === 'intro' && (
+                {slide.type === "intro" && (
                   <div className="flex-1 flex flex-col items-center justify-center text-center p-12 relative hero-gradient">
-                    <div className={`space-y-8 relative z-10 transition-all duration-400 ${revealStep >= 0 ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+                    <div
+                      className={`space-y-8 relative z-10 transition-all duration-400 ${
+                        revealStep >= 0
+                          ? "opacity-100 translate-y-0"
+                          : "opacity-0 translate-y-10"
+                      }`}
+                    >
                       <div className="inline-flex items-center justify-center p-6 rounded-[2rem] bg-gradient-to-br from-red-500 to-rose-600 shadow-2xl shadow-rose-500/30 mb-2 text-white animate-float">
                         <span className="text-5xl">🚀</span>
                       </div>
@@ -462,11 +699,24 @@
                     </div>
                     <div className="mt-20 w-full max-w-5xl grid grid-cols-1 md:grid-cols-3 gap-8 relative z-10">
                       {slide.objectives.map((obj, idx) => (
-                        <div key={idx} className={`pro-card p-8 rounded-[2rem] flex flex-col items-start justify-between h-64 transition-all duration-300 ${revealStep >= idx + 1 ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>
-                           <div className="w-14 h-14 rounded-2xl bg-white flex items-center justify-center text-2xl font-bold text-slate-900 shadow-md mb-4 border border-slate-100">0{idx + 1}</div>
-                           <div className="flex items-center gap-3 mb-2"><span className="text-3xl">{obj.icon}</span></div>
-                           <p className="text-xl font-medium text-slate-800 leading-snug">{obj.text}</p>
-                           <div className="w-full h-1.5 bg-gradient-to-r from-red-500 to-transparent rounded-full opacity-80 mt-4"></div>
+                        <div
+                          key={idx}
+                          className={`pro-card p-8 rounded-[2rem] flex flex-col items-start justify-between h-64 transition-all duration-300 ${
+                            revealStep >= idx + 1
+                              ? "opacity-100 translate-y-0"
+                              : "opacity-0 translate-y-4"
+                          }`}
+                        >
+                          <div className="w-14 h-14 rounded-2xl bg-white flex items-center justify-center text-2xl font-bold text-slate-900 shadow-md mb-4 border border-slate-100">
+                            0{idx + 1}
+                          </div>
+                          <div className="flex items-center gap-3 mb-2">
+                            <span className="text-3xl">{obj.icon}</span>
+                          </div>
+                          <p className="text-xl font-medium text-slate-800 leading-snug">
+                            {obj.text}
+                          </p>
+                          <div className="w-full h-1.5 bg-gradient-to-r from-red-500 to-transparent rounded-full opacity-80 mt-4"></div>
                         </div>
                       ))}
                     </div>
@@ -474,169 +724,329 @@
                 )}
 
                 {/* --- WHY SLIDES --- */}
-                {slide.type === 'why' && (
-                   <div className="flex-1 flex flex-col justify-center items-center text-center p-12 relative">
-                      <h1 className={`text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight mb-16 text-slate-900 transition-all duration-400 ${revealStep >= 0 ? 'opacity-100 scale-100' : 'opacity-0 scale-95'}`}>
-                        {slide.title}
-                      </h1>
-                      <div className="grid grid-cols-1 gap-4 max-w-4xl w-full">
-                        {slide.points.map((point, idx) => (
-                           <div key={idx} className={`pro-card flex items-center gap-6 p-6 rounded-[2rem] bg-white/90 transition-all duration-300 ${revealStep >= idx + 1 ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-6'}`}>
-                              <div className="w-3 h-3 rounded-full bg-rose-500 shadow-[0_0_20px_rgba(244,63,94,0.8)] flex-shrink-0"></div>
-                              <p className="text-2xl text-slate-800 font-light text-left">{point}</p>
-                           </div>
-                        ))}
+                {slide.type === "why" && (
+                  <div className="flex-1 flex flex-col justify-center items-center text-center p-12 relative">
+                    <h1
+                      className={`text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight mb-16 text-slate-900 transition-all duration-400 ${
+                        revealStep >= 0
+                          ? "opacity-100 scale-100"
+                          : "opacity-0 scale-95"
+                      }`}
+                    >
+                      {slide.title}
+                    </h1>
+                    <div className="grid grid-cols-1 gap-4 max-w-4xl w-full">
+                      {slide.points.map((point, idx) => (
+                        <div
+                          key={idx}
+                          className={`pro-card flex items-center gap-6 p-6 rounded-[2rem] bg-white/90 transition-all duration-300 ${
+                            revealStep >= idx + 1
+                              ? "opacity-100 translate-x-0"
+                              : "opacity-0 -translate-x-6"
+                          }`}
+                        >
+                          <div className="w-3 h-3 rounded-full bg-rose-500 shadow-[0_0_20px_rgba(244,63,94,0.8)] flex-shrink-0"></div>
+                          <p className="text-2xl text-slate-800 font-light text-left">
+                            {point}
+                          </p>
+                        </div>
+                      ))}
+                    </div>
+                    {revealStep >= (slide.points.length + 1) && slide.highlight && (
+                      <div className="mt-12 p-10 bg-gradient-to-r from-slate-900 to-slate-800 rounded-[2.5rem] shadow-2xl animate-fluid-reveal max-w-4xl w-full text-left relative overflow-hidden group">
+                        <div className="absolute top-0 right-0 p-8 opacity-10 text-6xl group-hover:opacity-20 transition-opacity">
+                          ✨
+                        </div>
+                        <p className="text-2xl md:text-3xl font-bold text-white relative z-10 leading-relaxed">
+                          "{slide.highlight}"
+                        </p>
                       </div>
-                      {revealStep >= ((slide.points?.length || 3) + 1) && slide.highlight && (
-                         <div className="mt-12 p-10 bg-gradient-to-r from-slate-900 to-slate-800 rounded-[2.5rem] shadow-2xl animate-fluid-reveal max-w-4xl w-full text-left relative overflow-hidden group">
-                             <div className="absolute top-0 right-0 p-8 opacity-10 text-6xl group-hover:opacity-20 transition-opacity">✨</div>
-                            <p className="text-2xl md:text-3xl font-bold text-white relative z-10 leading-relaxed">
-                               "{slide.highlight}"
-                            </p>
-                         </div>
-                      )}
-                   </div>
+                    )}
+                  </div>
                 )}
 
                 {/* --- COMPONENT SLIDES --- */}
-                {slide.type === 'component' && (
-                   <div className="flex-1 flex flex-col relative p-8 md:p-12">
-                      <div className={`flex items-end gap-8 mb-12 transition-all duration-400 ${revealStep >= 0 ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-6'}`}>
-                         <div className={`w-24 h-24 rounded-[2rem] bg-gradient-to-br ${slide.color} flex items-center justify-center text-5xl shadow-2xl ${slide.shadow} text-white`}>
-                            {slide.iconEmoji}
-                         </div>
-                         <div>
-                            <p className={`${slide.accent} font-mono text-sm tracking-[0.25em] uppercase mb-2 font-bold`}>{slide.subtitle}</p>
-                            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-slate-900 tracking-tight">{slide.title}</h1>
-                         </div>
+                {slide.type === "component" && (
+                  <div className="flex-1 flex flex-col relative p-8 md:p-12">
+                    <div
+                      className={`flex items-end gap-8 mb-12 transition-all duration-400 ${
+                        revealStep >= 0
+                          ? "opacity-100 translate-y-0"
+                          : "opacity-0 -translate-y-6"
+                      }`}
+                    >
+                      <div
+                        className={`w-24 h-24 rounded-[2rem] bg-gradient-to-br ${slide.color} flex items-center justify-center text-5xl shadow-2xl ${slide.shadow} text-white`}
+                      >
+                        {slide.iconEmoji}
                       </div>
-                      <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 h-full content-start">
-                         <div className="lg:col-span-4 flex flex-col gap-8 h-full">
-                            <div className={`definition-card p-8 rounded-[2.5rem] flex-1 transition-all duration-400 delay-100 relative overflow-hidden group ${revealStep >= 1 ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-6'}`}>
-                               <div className="absolute -right-10 -top-10 w-40 h-40 bg-white/5 rounded-full blur-3xl"></div>
-                               <div className="relative z-10 h-full flex flex-col justify-center">
-                                 <p className="text-lg md:text-xl font-bold leading-relaxed tracking-tight text-white text-balance opacity-90">
-                                  {slide.meaning}
-                                 </p>
-                                 <div className={`w-16 h-1.5 rounded-full bg-gradient-to-r ${slide.color} mt-6`}></div>
-                               </div>
-                            </div>
-                            <div className={`pro-card bg-white p-6 rounded-[2rem] transition-all duration-400 delay-200 border-l-8 ${slide.color.replace('from-', 'border-').split(' ')[0]} ${revealStep >= 4 ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>
-                               <h3 className="text-slate-400 text-xs font-bold uppercase tracking-widest mb-2 flex items-center gap-2">
-                                 <span className="text-xl">🤔</span> Reflect
-                               </h3>
-                               <p className="text-lg font-medium text-slate-800 leading-relaxed">{slide.reflection}</p>
-                            </div>
-                         </div>
-                         <div className="lg:col-span-8 flex flex-col gap-8">
-                            <div className={`flex-1 transition-all duration-400 delay-150 ${revealStep >= 2 ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>
-                               <h3 className="text-slate-400 text-sm font-bold uppercase tracking-widest mb-4 ml-2 flex items-center gap-2">In Practice <span className="h-px flex-1 bg-slate-200"></span></h3>
-                               <div className="grid grid-cols-1 md:grid-cols-3 gap-4 h-full"> 
-                                  {slide.examples?.map((ex, i) => {
-                                     const isRevealed = revealedExampleIndices.includes(i);
-                                     return (
-                                     <div 
-                                        key={i} 
-                                        onMouseEnter={() => handleExampleHover(i)}
-                                        className="image-card relative overflow-hidden rounded-[2rem] p-6 h-52 cursor-default flex flex-col justify-center items-center text-center"
-                                     >
-                                        <img src={ex.img} className="absolute inset-0 w-full h-full object-cover z-0" alt={ex.title || ex.company || ex.value || ex.behavior || ex.benefit || ex.ritual || ex.cue} />
-                                        <div className={`absolute inset-0 ${isRevealed ? 'bg-black/80 backdrop-blur-sm' : 'bg-black/40 hover:bg-black/60'} transition-all duration-300 z-10`}></div>
-
-                                        {/* Initial State */}
-                                        <div className={`relative z-20 transition-all duration-300 flex flex-col items-center ${isRevealed ? 'opacity-0 pointer-events-none' : 'opacity-100'}`}>
-                                            <div className="bg-white/20 p-3 rounded-full mb-3 backdrop-blur-md animate-pulse">
-                                                <div className="text-2xl text-white">✨</div>
-                                            </div>
-                                        </div>
-
-                                        {/* Revealed State */}
-                                        <div className={`absolute inset-0 p-4 flex flex-col justify-center items-center text-center z-20 transition-all duration-300 ${isRevealed ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-3'}`}>
-                                            <div className="text-3xl mb-2 text-white/90">{ex.logo || ex.icon}</div>
-                                            <div className="font-bold text-lg text-white mb-1 leading-tight">{ex.company || ex.value || ex.behavior || ex.benefit || ex.ritual || ex.cue}</div>
-                                            <div className="text-xs text-gray-200 leading-snug font-medium">
-                                                {ex.purpose || ex.detail || ex.description || ex.impact}
-                                            </div>
-                                        </div>
-                                     </div>
-                                  )})}
-                               </div>
-                            </div>
-                            <div className={`bg-gradient-to-r ${slide.color} p-8 rounded-[2.5rem] shadow-2xl flex items-center justify-between transition-all duration-400 delay-200 ${revealStep >= 3 ? 'opacity-100 scale-100' : 'opacity-0 scale-95'}`}>
-                               <div className="max-w-3xl">
-                                  <h3 className="text-white/80 text-xs font-bold uppercase tracking-widest mb-2">Key Takeaway</h3>
-                                  <p className="text-xl md:text-2xl font-bold text-white leading-tight">"{slide.takeaway}"</p>
-                               </div>
-                               <div className="text-5xl opacity-30 rotate-12 text-white mix-blend-overlay">💡</div>
-                            </div>
-                         </div>
+                      <div>
+                        <p
+                          className={`${slide.accent} font-mono text-sm tracking-[0.25em] uppercase mb-2 font-bold`}
+                        >
+                          {slide.subtitle}
+                        </p>
+                        <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-slate-900 tracking-tight">
+                          {slide.title}
+                        </h1>
                       </div>
-                   </div>
+                    </div>
+                    <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 h-full content-start">
+                      <div className="lg:col-span-4 flex flex-col gap-8 h-full">
+                        <div
+                          className={`definition-card p-8 rounded-[2.5rem] flex-1 transition-all duration-400 delay-100 relative overflow-hidden group ${
+                            revealStep >= 1
+                              ? "opacity-100 translate-x-0"
+                              : "opacity-0 -translate-x-6"
+                          }`}
+                        >
+                          <div className="absolute -right-10 -top-10 w-40 h-40 bg-white/5 rounded-full blur-3xl"></div>
+                          <div className="relative z-10 h-full flex flex-col justify-center">
+                            <p className="text-lg md:text-xl font-bold leading-relaxed tracking-tight text-white text-balance opacity-90">
+                              {slide.meaning}
+                            </p>
+                            <div
+                              className={`w-16 h-1.5 rounded-full bg-gradient-to-r ${slide.color} mt-6`}
+                            ></div>
+                          </div>
+                        </div>
+                        <div
+                          className={`pro-card bg-white p-6 rounded-[2rem] transition-all duration-400 delay-200 border-l-8 ${
+                            slide.color.replace("from-", "border-").split(" ")[0]
+                          } ${
+                            revealStep >= 4
+                              ? "opacity-100 translate-y-0"
+                              : "opacity-0 translate-y-4"
+                          }`}
+                        >
+                          <h3 className="text-slate-400 text-xs font-bold uppercase tracking-widest mb-2 flex items-center gap-2">
+                            <span className="text-xl">🤔</span> Reflect
+                          </h3>
+                          <p className="text-lg font-medium text-slate-800 leading-relaxed">
+                            {slide.reflection}
+                          </p>
+                        </div>
+                      </div>
+                      <div className="lg:col-span-8 flex flex-col gap-8">
+                        <div
+                          className={`flex-1 transition-all duration-400 delay-150 ${
+                            revealStep >= 2
+                              ? "opacity-100 translate-y-0"
+                              : "opacity-0 translate-y-4"
+                          }`}
+                        >
+                          <h3 className="text-slate-400 text-sm font-bold uppercase tracking-widest mb-4 ml-2 flex items-center gap-2">
+                            In Practice <span className="h-px flex-1 bg-slate-200"></span>
+                          </h3>
+                          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 h-full">
+                            {slide.examples?.map((ex, i) => {
+                              const isRevealed =
+                                revealedExampleIndices.includes(i);
+                              return (
+                                <div
+                                  key={i}
+                                  onMouseEnter={() => handleExampleHover(i)}
+                                  className="image-card relative overflow-hidden rounded-[2rem] p-6 h-52 cursor-default flex flex-col justify-center items-center text-center"
+                                >
+                                  <img
+                                    src={ex.img}
+                                    className="absolute inset-0 w-full h-full object-cover z-0"
+                                    alt={
+                                      ex.title ||
+                                      ex.company ||
+                                      ex.value ||
+                                      ex.behavior ||
+                                      ex.benefit ||
+                                      ex.ritual ||
+                                      ex.cue
+                                    }
+                                  />
+                                  <div
+                                    className={`absolute inset-0 ${
+                                      isRevealed
+                                        ? "bg-black/80 backdrop-blur-sm"
+                                        : "bg-black/40 hover:bg-black/60"
+                                    } transition-all duration-300 z-10`}
+                                  ></div>
+
+                                  {/* Initial State */}
+                                  <div
+                                    className={`relative z-20 transition-all duration-300 flex flex-col items-center ${
+                                      isRevealed
+                                        ? "opacity-0 pointer-events-none"
+                                        : "opacity-100"
+                                    }`}
+                                  >
+                                    <div className="bg-white/20 p-3 rounded-full mb-3 backdrop-blur-md animate-pulse">
+                                      <div className="text-2xl text-white">✨</div>
+                                    </div>
+                                  </div>
+
+                                  {/* Revealed State */}
+                                  <div
+                                    className={`absolute inset-0 p-4 flex flex-col justify-center items-center text-center z-20 transition-all duration-300 ${
+                                      isRevealed
+                                        ? "opacity-100 translate-y-0"
+                                        : "opacity-0 translate-y-3"
+                                    }`}
+                                  >
+                                    <div className="text-3xl mb-2 text-white/90">
+                                      {ex.logo || ex.icon}
+                                    </div>
+                                    <div className="font-bold text-lg text-white mb-1 leading-tight">
+                                      {ex.company ||
+                                        ex.value ||
+                                        ex.behavior ||
+                                        ex.benefit ||
+                                        ex.ritual ||
+                                        ex.cue}
+                                    </div>
+                                    <div className="text-xs text-gray-200 leading-snug font-medium">
+                                      {ex.purpose ||
+                                        ex.detail ||
+                                        ex.description ||
+                                        ex.impact}
+                                    </div>
+                                  </div>
+                                </div>
+                              );
+                            })}
+                          </div>
+                        </div>
+                        <div
+                          className={`bg-gradient-to-r ${slide.color} p-8 rounded-[2.5rem] shadow-2xl flex items-center justify-between transition-all duration-400 delay-200 ${
+                            revealStep >= 3
+                              ? "opacity-100 scale-100"
+                              : "opacity-0 scale-95"
+                          }`}
+                        >
+                          <div className="max-w-3xl">
+                            <h3 className="text-white/80 text-xs font-bold uppercase tracking-widest mb-2">
+                              Key Takeaway
+                            </h3>
+                            <p className="text-xl md:text-2xl font-bold text-white leading-tight">
+                              "{slide.takeaway}"
+                            </p>
+                          </div>
+                          <div className="text-5xl opacity-30 rotate-12 text-white mix-blend-overlay">
+                            💡
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
                 )}
 
                 {/* --- BREAKOUT ROOMS SLIDE --- */}
-                {slide.type === 'breakout' && (
-                   <div className="flex-1 flex flex-col items-center justify-center text-center p-12 relative">
-                      <div className={`space-y-4 relative z-10 transition-all duration-400 ${revealStep >= 0 ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>
-                          <div className="inline-flex items-center justify-center p-4 rounded-full bg-white shadow-lg mb-2">
-                             <span className="text-4xl">🔥</span>
+                {slide.type === "breakout" && (
+                  <div className="flex-1 flex flex-col items-center justify-center text-center p-12 relative">
+                    <div
+                      className={`space-y-4 relative z-10 transition-all duration-400 ${
+                        revealStep >= 0
+                          ? "opacity-100 translate-y-0"
+                          : "opacity-0 translate-y-4"
+                      }`}
+                    >
+                      <div className="inline-flex items-center justify-center p-4 rounded-full bg-white shadow-lg mb-2">
+                        <span className="text-4xl">🔥</span>
+                      </div>
+                      <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold tracking-tighter text-slate-900 leading-tight mb-1">
+                        {slide.title}
+                      </h1>
+                      <p className="text-xl md:text-2xl text-slate-600 font-light tracking-wide mb-8">
+                        {slide.subtitle}
+                      </p>
+                    </div>
+
+                    <div className="w-full max-w-7xl grid grid-cols-1 md:grid-cols-5 gap-4 relative z-10">
+                      {slide.rooms.map((room, idx) => (
+                        <div
+                          key={idx}
+                          className={`pro-card flex flex-col items-center justify-center p-6 rounded-[2rem] transition-all duration-300 hover:scale-105 hover:shadow-2xl cursor-pointer group ${
+                            revealStep >= 1
+                              ? "opacity-100 translate-y-0"
+                              : "opacity-0 translate-y-4"
+                          }`}
+                        >
+                          <div
+                            className={`w-16 h-16 rounded-full bg-gradient-to-br ${room.color} flex items-center justify-center text-3xl text-white shadow-lg mb-4 group-hover:rotate-6 transition-transform`}
+                          >
+                            {room.icon}
                           </div>
-                          <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold tracking-tighter text-slate-900 leading-tight mb-1">
-                            {slide.title}
-                          </h1>
-                          <p className="text-xl md:text-2xl text-slate-600 font-light tracking-wide mb-8">
-                            {slide.subtitle}
+                          <h3 className="text-lg font-bold text-slate-800 mb-1">
+                            {room.name}
+                          </h3>
+                          <p className="text-xs text-slate-500 font-medium uppercase tracking-widest">
+                            Room {idx + 1}
                           </p>
-                      </div>
-                      
-                      {/* 5 Columns for Rooms */}
-                      <div className="w-full max-w-7xl grid grid-cols-1 md:grid-cols-5 gap-4 relative z-10">
-                         {slide.rooms.map((room, idx) => (
-                            <div key={idx} className={`pro-card flex flex-col items-center justify-center p-6 rounded-[2rem] transition-all duration-300 hover:scale-105 hover:shadow-2xl cursor-pointer group ${revealStep >= 1 ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>
-                                <div className={`w-16 h-16 rounded-full bg-gradient-to-br ${room.color} flex items-center justify-center text-3xl text-white shadow-lg mb-4 group-hover:rotate-6 transition-transform`}>{room.icon}</div>
-                                <h3 className="text-lg font-bold text-slate-800 mb-1">{room.name}</h3>
-                                <p className="text-xs text-slate-500 font-medium uppercase tracking-widest">Room {idx + 1}</p>
-                            </div>
-                         ))}
-                      </div>
+                        </div>
+                      ))}
+                    </div>
 
-                      <div className={`mt-10 bg-white/80 backdrop-blur-md p-5 rounded-2xl border border-white shadow-lg max-w-2xl transition-all duration-400 ${revealStep >= 1 ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-3'}`}>
-                          <p className="text-base md:text-lg font-medium text-slate-700">
-                            <span className="mr-2">📢</span> {slide.instruction}
-                          </p>
-                      </div>
-                   </div>
+                    <div
+                      className={`mt-10 bg-white/80 backdrop-blur-md p-5 rounded-2xl border border-white shadow-lg max-w-2xl transition-all duration-400 ${
+                        revealStep >= 1
+                          ? "opacity-100 translate-y-0"
+                          : "opacity-0 translate-y-3"
+                      }`}
+                    >
+                      <p className="text-base md:text-lg font-medium text-slate-700">
+                        <span className="mr-2">📢</span> {slide.instruction}
+                      </p>
+                    </div>
+                  </div>
                 )}
-
               </div>
 
               {/* --- BOTTOM NAV --- */}
               {!isFullscreen && (
                 <div className="nav-shell absolute bottom-0 left-0 w-full p-6 flex justify-between items-end z-50 pointer-events-none">
-                   {/* Progress Bar */}
-                   <div className="absolute bottom-0 left-0 h-2 bg-slate-200/50 w-full backdrop-blur">
-                      <div className={`h-full bg-gradient-to-r ${slide.color || 'from-slate-800 to-slate-600'} transition-all duration-300`} style={{width: `${((currentSlide + 1) / slides.length) * 100}%`}}></div>
-                   </div>
+                  <div className="absolute bottom-0 left-0 h-2 bg-slate-200/50 w-full backdrop-blur">
+                    <div
+                      className={`h-full bg-gradient-to-r ${
+                        slide.color || "from-slate-800 to-slate-600"
+                      } transition-all duration-300`}
+                      style={{
+                        width: `${((currentSlide + 1) / slides.length) * 100}%`,
+                      }}
+                    ></div>
+                  </div>
 
-                   <div className="pointer-events-auto bg-white/90 backdrop-blur-md px-5 py-2 rounded-full flex items-center gap-3 text-xs md:text-sm font-medium text-slate-500 shadow-xl border border-white/50">
-                      <span className="text-slate-900 font-bold">{(currentSlide + 1).toString().padStart(2, '0')}</span>
-                      <span className="w-px h-4 bg-slate-300"></span>
-                      <span>{slides.length.toString().padStart(2, '0')}</span>
-                   </div>
+                  <div className="pointer-events-auto bg-white/90 backdrop-blur-md px-5 py-2 rounded-full flex items-center gap-3 text-xs md:text-sm font-medium text-slate-500 shadow-xl border border-white/50">
+                    <span className="text-slate-900 font-bold">
+                      {(currentSlide + 1).toString().padStart(2, "0")}
+                    </span>
+                    <span className="w-px h-4 bg-slate-300"></span>
+                    <span>{slides.length.toString().padStart(2, "0")}</span>
+                  </div>
 
-                   <div className="flex items-center gap-3 pointer-events-auto">
-                      <button onClick={prevAction} disabled={currentSlide === 0 && revealStep === 0} className="p-3 rounded-full bg-white/80 hover:bg-white transition-all disabled:opacity-30 active:scale-90 shadow-lg border border-white/50 text-slate-700"><ArrowLeft className="w-5 h-5" /></button>
-                      <button onClick={nextAction} disabled={currentSlide === slides.length - 1 && revealStep === slide.totalSteps - 1} className="p-3 rounded-full bg-slate-900 text-white hover:bg-slate-800 transition-all disabled:opacity-30 active:scale-90 shadow-xl shadow-slate-900/20"><ArrowRight className="w-5 h-5" /></button>
-                   </div>
+                  <div className="flex items-center gap-3 pointer-events-auto">
+                    <button
+                      onClick={prevAction}
+                      disabled={currentSlide === 0 && revealStep === 0}
+                      className="p-3 rounded-full bg-white/80 hover:bg-white transition-all disabled:opacity-30 active:scale-90 shadow-lg border border-white/50 text-slate-700"
+                    >
+                      <ArrowLeft className="w-5 h-5" />
+                    </button>
+                    <button
+                      onClick={nextAction}
+                      disabled={
+                        currentSlide === slides.length - 1 &&
+                        revealStep === slide.totalSteps - 1
+                      }
+                      className="p-3 rounded-full bg-slate-900 text-white hover:bg-slate-800 transition-all disabled:opacity-30 active:scale-90 shadow-xl shadow-slate-900/20"
+                    >
+                      <ArrowRight className="w-5 h-5" />
+                    </button>
+                  </div>
                 </div>
               )}
-
             </div>
           </div>
         );
       }
 
-      const root = ReactDOM.createRoot(document.getElementById('root'));
+      const root = ReactDOM.createRoot(document.getElementById("root"));
       root.render(<CultureSlideshow />);
     </script>
   </body>
