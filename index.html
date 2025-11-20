@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <title>Great Mondays – Strict Fixed Layout</title>
+    <title>Great Mondays – ALLHR </title>
     <meta
       name="viewport"
       content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
@@ -21,7 +21,6 @@
 
     <style>
       :root {
-        /* Bouncy Physics */
         --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
       }
 
@@ -32,7 +31,7 @@
         font-family: "Inter", sans-serif;
         background: #0f172a;
         color: #0f172a;
-        overflow: hidden; /* No body scroll */
+        overflow: hidden;
       }
 
       h1, h2, h3, h4 { font-family: "Space Grotesk", sans-serif; letter-spacing: -0.03em; }
@@ -44,7 +43,6 @@
         cursor: pointer;
       }
 
-      /* Hover Effect (Desktop only) */
       @media (hover: hover) {
         .bubbly:hover {
           transform: scale(1.02) translateY(-2px);
@@ -55,7 +53,6 @@
         }
       }
 
-      /* Active/Tap Effect (Squish) */
       .bubbly:active {
         transform: scale(0.96) !important;
         transition: transform 0.1s ease-out;
@@ -73,12 +70,12 @@
         animation: slowPan 25s ease-in-out infinite alternate;
       }
 
-      /* Glassmorph */
+      /* Glassmorph (Light Background for Dark Text) */
       .glass {
-        background: rgba(255, 255, 255, 0.92);
+        background: rgba(255, 255, 255, 0.95);
         backdrop-filter: blur(12px);
-        border: 1px solid rgba(255, 255, 255, 0.8);
-        box-shadow: 0 8px 32px -8px rgba(0, 0, 0, 0.1);
+        border: 1px solid rgba(255, 255, 255, 0.9);
+        box-shadow: 0 8px 32px -8px rgba(0, 0, 0, 0.15);
       }
 
       .image-card {
@@ -97,7 +94,6 @@
         transform: scale(1.1);
       }
 
-      /* Mobile Scroll Utils */
       .no-scrollbar::-webkit-scrollbar { display: none; }
       .mobile-scroll { overflow-y: auto; -webkit-overflow-scrolling: touch; }
     </style>
@@ -148,9 +144,9 @@
             title: "Great Mondays",
             subtitle: "Designing a Culture Employees Love",
             objectives: [
-              { text: "The Framework", icon: "🎯" },
-              { text: "Practical Application", icon: "⚡" },
-              { text: "Design Actions", icon: "👥" },
+              { text: "Understand the Framework", icon: "🎯" },
+              { text: "Learn Practical Applications", icon: "⚡" },
+              { text: "Design Meaningful Actions", icon: "👥" },
             ],
             totalSteps: 4,
           },
@@ -158,9 +154,9 @@
             type: "why",
             title: "Why Culture Matters",
             points: [
-              "Talent wants meaning",
-              "Prevents risk & inconsistency",
-              "Designed by intention",
+              "Talent expectations are meaning-driven",
+              "Culture prevents risk and reinforces consistency",
+              "Designed with intention, not by accident",
             ],
             highlight: "Treat culture like a product. Define, build, test, iterate.",
             totalSteps: 5,
@@ -173,14 +169,14 @@
             color: "from-red-500 to-rose-500",
             accent: "text-red-600",
             shadow: "shadow-red-500/20",
-            meaning: "The reason we exist beyond profit. Emotional, clear, enduring.",
+            meaning: "The reason we exist beyond profit. It is emotional, clear, and enduring.",
             examples: [
-              { company: "IKEA", purpose: "Better everyday life", logo: "🏠", img: "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=800" },
-              { company: "Nike", purpose: "Inspire every athlete", logo: "⚡", img: "https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=800" },
-              { company: "Starbucks", purpose: "Nurture human spirit", logo: "☕", img: "https://images.unsplash.com/photo-1497935586351-b67a49e012bf?auto=format&fit=crop&w=800" },
+              { company: "IKEA", purpose: "Better everyday life for the many people", logo: "🏠", img: "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=800" },
+              { company: "Nike", purpose: "Inspire and innovate for every athlete", logo: "⚡", img: "https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=800" },
+              { company: "Starbucks", purpose: "Nurture the human spirit", logo: "☕", img: "https://images.unsplash.com/photo-1497935586351-b67a49e012bf?auto=format&fit=crop&w=800" },
             ],
-            takeaway: "Make it short and actionable.",
-            reflection: "What change do we create?",
+            takeaway: "Purpose should be short enough to remember and actionable enough to guide decisions.",
+            reflection: "What meaningful change do we create for people?",
             totalSteps: 5,
           },
           {
@@ -191,14 +187,14 @@
             color: "from-blue-500 to-cyan-600",
             accent: "text-blue-600",
             shadow: "shadow-blue-500/20",
-            meaning: "Beliefs that guide choices. Commitments, not just words.",
+            meaning: "Beliefs that guide choices when tensions arise. Commitments, not just words.",
             examples: [
-              { value: "Own It", icon: "🎯", img: "https://images.unsplash.com/photo-1553484771-371a605b060b?auto=format&fit=crop&w=800" },
+              { value: "Own the Outcome", icon: "🎯", img: "https://images.unsplash.com/photo-1553484771-371a605b060b?auto=format&fit=crop&w=800" },
               { value: "Learn Boldly", icon: "🚀", img: "https://images.unsplash.com/photo-1523580846011-d3a5bc25702b?auto=format&fit=crop&w=800" },
               { value: "Speak Truth", icon: "💬", img: "https://images.unsplash.com/photo-1588196749597-9ff075ee6b5b?auto=format&fit=crop&w=800" },
             ],
-            takeaway: "Values must appear in the lifecycle.",
-            reflection: "Which value do we struggle to live?",
+            takeaway: "Values must show up across the entire employee lifecycle, not only on posters.",
+            reflection: "Which value do we claim but struggle to live?",
             totalSteps: 5,
           },
           {
@@ -209,32 +205,32 @@
             color: "from-violet-500 to-purple-600",
             accent: "text-violet-600",
             shadow: "shadow-indigo-500/20",
-            meaning: "Values converted into observable, coachable actions.",
+            meaning: "Values converted into observable actions that are practical and coachable.",
             examples: [
               { behavior: "Encourage Opinions", icon: "✨", img: "https://images.unsplash.com/photo-1515187029135-18ee286d815b?auto=format&fit=crop&w=800" },
               { behavior: "Remove Gaps", icon: "🎯", img: "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=800" },
               { behavior: "Enable Managers", icon: "💪", img: "https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=800" },
             ],
-            takeaway: "Make right behaviors easy.",
-            reflection: "Where do behaviors contradict values?",
+            takeaway: "Make the right behaviors easier and the wrong behaviors harder.",
+            reflection: "Where do our behaviors contradict our stated values?",
             totalSteps: 5,
           },
           {
             type: "component",
             iconEmoji: "🏆",
             title: "Recognition",
-            subtitle: "Reinforcing",
+            subtitle: "Reinforcing What Matters",
             color: "from-amber-400 to-orange-500",
             accent: "text-orange-600",
             shadow: "shadow-orange-500/20",
-            meaning: "Reinforcing behaviors through specific acknowledgement.",
+            meaning: "Reinforcing behaviors through specific, frequent, and fair acknowledgement.",
             examples: [
-              { benefit: "Repetition", detail: "Noticed = Repeated", icon: "🔄", img: "https://images.unsplash.com/photo-1546953304-5d96f43c2e94?auto=format&fit=crop&w=800" },
-              { benefit: "Community", detail: "Strengthens bonds", icon: "🤝", img: "https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&w=800" },
-              { benefit: "Tangible", detail: "Abstract to concrete", icon: "⭐", img: "https://images.unsplash.com/photo-1559526324-593bc073d938?auto=format&fit=crop&w=800" },
+              { benefit: "Repetition", detail: "People repeat what gets noticed", icon: "🔄", img: "https://images.unsplash.com/photo-1546953304-5d96f43c2e94?auto=format&fit=crop&w=800" },
+              { benefit: "Community", detail: "Strengthens team bonds", icon: "🤝", img: "https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&w=800" },
+              { benefit: "Tangible Values", detail: "Transforms abstract into concrete", icon: "⭐", img: "https://images.unsplash.com/photo-1559526324-593bc073d938?auto=format&fit=crop&w=800" },
             ],
-            takeaway: "Tie recognition to a value and behavior.",
-            reflection: "What should we stop rewarding?",
+            takeaway: "Every recognition moment should be tied to a value and a clear behavior.",
+            reflection: "What do we reward that we should stop rewarding?",
             totalSteps: 5,
           },
           {
@@ -245,14 +241,14 @@
             color: "from-teal-400 to-emerald-600",
             accent: "text-teal-600",
             shadow: "shadow-teal-500/20",
-            meaning: "Recurring experiences that build connection.",
+            meaning: "Recurring experiences that build connection and replace dependence on organic closeness.",
             examples: [
-              { ritual: "Gratitude Circles", description: "Appreciation", icon: "🙏", img: "https://images.unsplash.com/photo-1529333166437-7750a6dd5a70?auto=format&fit=crop&w=800" },
-              { ritual: "Demo Day", description: "Showcase wins", icon: "🎉", img: "https://images.unsplash.com/photo-1543269865-cbf427effbad?auto=format&fit=crop&w=800" },
-              { ritual: "Customer Stories", description: "Impact", icon: "💡", img: "https://images.unsplash.com/photo-1556761175-5973dc0f32e7?auto=format&fit=crop&w=800" },
+              { ritual: "Gratitude Circles", description: "Regular appreciation moments", icon: "🙏", img: "https://images.unsplash.com/photo-1529333166437-7750a6dd5a70?auto=format&fit=crop&w=800" },
+              { ritual: "Demo Day", description: "Showcase progress and wins", icon: "🎉", img: "https://images.unsplash.com/photo-1543269865-cbf427effbad?auto=format&fit=crop&w=800" },
+              { ritual: "Customer Stories", description: "Connect to impact", icon: "💡", img: "https://images.unsplash.com/photo-1556761175-5973dc0f32e7?auto=format&fit=crop&w=800" },
             ],
-            takeaway: "Rituals need owners, cadence, and meaning.",
-            reflection: "Which rituals have lost meaning?",
+            takeaway: "Rituals need clear owners, cadence, consistency, and a link to a value.",
+            reflection: "Which rituals energize us, and which have lost meaning?",
             totalSteps: 5,
           },
           {
@@ -263,31 +259,31 @@
             color: "from-pink-500 to-rose-600",
             accent: "text-pink-600",
             shadow: "shadow-pink-500/20",
-            meaning: "Physical/digital reminders that automate habits.",
+            meaning: "Physical or digital reminders that make culture visible and automate habits.",
             examples: [
-              { cue: "Story Rooms", impact: "Inspiring spaces", icon: "🏢", img: "https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=800" },
-              { cue: "Digital Nudges", impact: "Weekly prompts", icon: "📱", img: "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=800" },
+              { cue: "Story Rooms", impact: "Physical spaces that inspire", icon: "🏢", img: "https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=800" },
+              { cue: "Digital Nudges", impact: "Prompts for weekly wins", icon: "📱", img: "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=800" },
               { cue: "Swag", impact: "Identity", icon: "👕", img: "https://images.unsplash.com/photo-1529333166437-7750a6dd5a70?auto=format&fit=crop&w=800" },
             ],
-            takeaway: "Make the right thing obvious.",
-            reflection: "Where are cues missing?",
+            takeaway: "Make the right thing obvious and the wrong thing awkward.",
+            reflection: "Where are cues missing or inconsistent?",
             totalSteps: 5,
           },
           {
             type: "why",
             title: "Evolving Culture Practice",
             points: [
-              "Move to 'Values Fit'",
-              "Culture as a Product",
-              "Hybrid & Distributed",
-              "Leaders as Gardeners",
+              "From “culture fit” to “values fit”. Reduce bias, increase clarity.",
+              "Culture as a product. Iteration cycles, telemetry, and experiments.",
+              "Hybrid and distributed realities. The six components must adapt to geography and modality.",
+              "Leaders as gardeners. Create conditions. Prune misaligned behaviors quickly.",
             ],
-            highlight: "Shift from hiring for sameness to designing systems that scale values.",
+            highlight: "Shift from hiring for sameness to designing systems that scale values across roles, locations, and modalities.",
             totalSteps: 6,
           },
           {
             type: "breakout",
-            title: "Breakout",
+            title: "Breakout Rooms",
             subtitle: "Apply the 5 Elements",
             rooms: [
               { name: "Purpose", icon: "🎯", color: "from-red-500 to-rose-500" },
@@ -296,7 +292,7 @@
               { name: "Recognition", icon: "🏆", color: "from-yellow-500 to-orange-500" },
               { name: "Rituals", icon: "📅", color: "from-teal-500 to-emerald-500" },
             ],
-            instruction: "Translate components into actions.",
+            instruction: "In groups, translate the following five components of culture into concrete actions for our teams.",
             totalSteps: 2,
           },
         ];
@@ -462,7 +458,7 @@
                         ))}
                       </div>
                       {revealStep >= slide.points.length + 1 && (
-                        <div className="mt-8 p-6 bg-slate-900 rounded-3xl shadow-xl max-w-4xl w-full text-left bubbly mx-4 text-white text-xl font-bold">
+                        <div className="mt-8 p-6 glass rounded-3xl shadow-xl max-w-4xl w-full text-left bubbly mx-4 text-slate-900 text-xl font-bold border-l-8 border-rose-500">
                           "{slide.highlight}"
                         </div>
                       )}
@@ -481,8 +477,8 @@
 
                       <div className="flex-1 grid grid-cols-1 lg:grid-cols-12 gap-6 content-start min-h-0">
                         <div className="lg:col-span-4 flex flex-col gap-4">
-                          <div className={`definition-card bubbly p-6 rounded-[2rem] transition-all duration-500 delay-100 ${revealStep >= 1 ? "opacity-100 x-0" : "opacity-0 -translate-x-4"}`}>
-                            <p className="text-lg md:text-2xl font-bold leading-tight text-white/95">{slide.meaning}</p>
+                          <div className={`glass bubbly p-6 rounded-[2rem] transition-all duration-500 delay-100 ${revealStep >= 1 ? "opacity-100 x-0" : "opacity-0 -translate-x-4"}`}>
+                            <p className="text-lg md:text-2xl font-bold leading-tight text-slate-900">{slide.meaning}</p>
                             <div className={`w-12 h-1 rounded-full bg-gradient-to-r ${slide.color} mt-4`}></div>
                           </div>
                           <div className={`glass bubbly p-5 rounded-[2rem] border-l-8 ${slide.color.replace("from-", "border-").split(" ")[0]} transition-all duration-500 delay-200 ${revealStep >= 4 ? "opacity-100 y-0" : "opacity-0 translate-y-4"} hidden lg:block`}>
@@ -513,9 +509,9 @@
                             </div>
                           </div>
                           
-                          <div className={`bg-gradient-to-r ${slide.color} bubbly p-6 rounded-[2rem] shadow-lg shrink-0 transition-all duration-500 ${revealStep >= 3 ? "opacity-100" : "opacity-0"}`}>
-                            <h3 className="text-white/70 text-xs font-bold uppercase tracking-widest mb-1">Key Takeaway</h3>
-                            <p className="text-xl md:text-2xl font-bold text-white leading-tight">"{slide.takeaway}"</p>
+                          <div className={`glass bubbly p-6 rounded-[2rem] shadow-lg shrink-0 transition-all duration-500 ${revealStep >= 3 ? "opacity-100" : "opacity-0"} border-l-8 ${slide.color.replace("from-", "border-").split(" ")[0]}`}>
+                            <h3 className="text-slate-400 text-xs font-bold uppercase tracking-widest mb-1">Key Takeaway</h3>
+                            <p className="text-xl md:text-2xl font-bold text-slate-900 leading-tight">"{slide.takeaway}"</p>
                           </div>
 
                           <div className={`glass bubbly p-5 rounded-[2rem] border-l-8 ${slide.color.replace("from-", "border-").split(" ")[0]} transition-all duration-500 ${revealStep >= 4 ? "opacity-100" : "opacity-0"} lg:hidden`}>
