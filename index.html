@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <title>Great Mondays – ALLHR </title>
+    <title>Great Mondays – Dubizzle Group HR</title>
     <meta
       name="viewport"
       content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
@@ -70,7 +70,7 @@
         animation: slowPan 25s ease-in-out infinite alternate;
       }
 
-      /* Glassmorph (Light Background for Dark Text) */
+      /* Glassmorph */
       .glass {
         background: rgba(255, 255, 255, 0.95);
         backdrop-filter: blur(12px);
@@ -125,7 +125,7 @@
         Recognition: "https://images.unsplash.com/photo-1531545514256-b1400bc00f31?q=80&w=2574&auto=format&fit=crop",
         Rituals: "https://images.unsplash.com/photo-1543269865-cbf427effbad?q=80&w=2070&auto=format&fit=crop",
         Cues: "https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=2069&auto=format&fit=crop",
-        "Breakout Rooms": "https://images.unsplash.com/photo-1529156069898-49953e39b3ac?q=80&w=2055&auto=format&fit=crop",
+        "The Culture Map": "https://images.unsplash.com/photo-1529156069898-49953e39b3ac?q=80&w=2055&auto=format&fit=crop",
       };
 
       function CultureSlideshow() {
@@ -279,21 +279,22 @@
               "Leaders as gardeners. Create conditions. Prune misaligned behaviors quickly.",
             ],
             highlight: "Shift from hiring for sameness to designing systems that scale values across roles, locations, and modalities.",
-            totalSteps: 5,
+            totalSteps: 6,
           },
           {
-            type: "breakout",
-            title: "Breakout Rooms",
-            subtitle: "Apply the 5 Elements",
-            rooms: [
-              { name: "Purpose", icon: "🎯", color: "from-red-500 to-rose-500" },
-              { name: "Values", icon: "❤️", color: "from-blue-500 to-cyan-500" },
-              { name: "Behaviors", icon: "👥", color: "from-indigo-500 to-purple-500" },
-              { name: "Recognition", icon: "🏆", color: "from-yellow-500 to-orange-500" },
-              { name: "Rituals", icon: "📅", color: "from-teal-500 to-emerald-500" },
+            type: "recap",
+            title: "The Culture Map",
+            subtitle: "Six Components of Great Culture",
+            grid: [
+              { label: "Purpose", sub: "The North Star", icon: "🎯", color: "from-red-500 to-rose-500" },
+              { label: "Values", sub: "The Compass", icon: "❤️", color: "from-blue-500 to-cyan-600" },
+              { label: "Behaviors", sub: "The Actions", icon: "👥", color: "from-violet-500 to-purple-600" },
+              { label: "Recognition", sub: "The Fuel", icon: "🏆", color: "from-amber-400 to-orange-500" },
+              { label: "Rituals", sub: "The Rhythm", icon: "📅", color: "from-teal-400 to-emerald-600" },
+              { label: "Cues", sub: "The Environment", icon: "👁️", color: "from-pink-500 to-rose-600" },
             ],
-            instruction: "In groups, translate the following five components of culture into concrete actions for our teams.",
-            totalSteps: 2,
+            cta: "Go design a culture people love.",
+            totalSteps: 3,
           },
         ];
 
@@ -523,23 +524,25 @@
                     </div>
                   )}
 
-                  {slide.type === "breakout" && (
+                  {slide.type === "recap" && (
                     <div className="flex flex-col items-center justify-center text-center h-full">
-                      <div className={`mb-8 transition-all duration-500 ${revealStep >= 0 ? "opacity-100" : "opacity-0 translate-y-8"}`}>
-                        <div className="inline-flex p-4 rounded-full bg-white shadow-lg mb-4 text-4xl">🔥</div>
-                        <h1 className="text-5xl md:text-8xl font-bold text-slate-900 mb-2">{slide.title}</h1>
-                        <p className="text-xl md:text-3xl text-slate-600 font-light">{slide.subtitle}</p>
+                      <div className={`mb-6 transition-all duration-500 ${revealStep >= 0 ? "opacity-100" : "opacity-0 translate-y-8"}`}>
+                        <h1 className="text-4xl md:text-7xl font-bold text-slate-900 mb-1">{slide.title}</h1>
+                        <p className="text-lg md:text-2xl text-slate-600 font-light">{slide.subtitle}</p>
                       </div>
-                      <div className="w-full max-w-6xl grid grid-cols-1 sm:grid-cols-5 gap-4 px-4">
-                        {slide.rooms.map((room, i) => (
-                          <div key={i} className={`glass bubbly flex sm:flex-col items-center p-4 sm:p-6 rounded-[2rem] gap-4 hover:bg-white transition-colors duration-300 ${revealStep >= 1 ? "opacity-100 y-0" : "opacity-0 translate-y-8"}`}>
-                            <div className={`w-14 h-14 sm:w-20 sm:h-20 rounded-full bg-gradient-to-br ${room.color} flex items-center justify-center text-2xl sm:text-4xl text-white shadow-lg shrink-0`}>{room.icon}</div>
-                            <div className="text-left sm:text-center"><h3 className="text-lg sm:text-xl font-bold text-slate-800">{room.name}</h3></div>
+                      <div className="w-full max-w-6xl grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3 px-4">
+                        {slide.grid.map((item, i) => (
+                          <div key={i} className={`glass bubbly flex items-center p-4 rounded-[1.5rem] gap-3 hover:bg-white transition-colors duration-300 ${revealStep >= 1 ? "opacity-100 y-0" : "opacity-0 translate-y-8"}`}>
+                            <div className={`w-12 h-12 rounded-full bg-gradient-to-br ${item.color} flex items-center justify-center text-2xl text-white shadow-lg shrink-0`}>{item.icon}</div>
+                            <div className="text-left">
+                              <h3 className="text-lg font-bold text-slate-900 leading-none mb-0.5">{item.label}</h3>
+                              <p className="text-xs text-slate-500 uppercase font-bold tracking-wider">{item.sub}</p>
+                            </div>
                           </div>
                         ))}
                       </div>
-                      <div className={`mt-8 bg-white/90 bubbly p-5 rounded-[2rem] shadow-lg max-w-2xl transition-all duration-500 ${revealStep >= 1 ? "opacity-100" : "opacity-0"}`}>
-                        <p className="text-lg font-medium text-slate-700">📢 {slide.instruction}</p>
+                      <div className={`mt-8 bg-slate-900 bubbly p-6 rounded-[2rem] shadow-lg max-w-2xl transition-all duration-500 ${revealStep >= 2 ? "opacity-100" : "opacity-0"}`}>
+                        <p className="text-xl font-bold text-white">✨ {slide.cta}</p>
                       </div>
                     </div>
                   )}
